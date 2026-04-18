@@ -1,0 +1,423 @@
+<!--EDEV ROOMZA-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROOMZA - Affordable Housing & Roommate Finder</title>
+    <meta name="description" content="Find affordable housing and compatible roommates for students and low-income individuals">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1E90FF", 
+                        secondary: "#87CEEB",
+                        accent: "#90EE90"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-white">
+    <!-- Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="Images/Picture1.png" alt="ROOMZA Logo" class="h-10 w-10 rounded-full">
+                <span class="text-xl font-bold text-primary">ROOMZA</span>
+            </div>
+            <ul id="nav-links" class="hidden md:flex space-x-6"></ul>
+            <button id="sign-in-btn" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">SIGN IN</button>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-md">
+            <ul id="mobile-nav-links"></ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Landing Page -->
+        <section id="landing" class="py-12">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl font-bold text-center text-primary mb-8">FIND A NEW RENTAL IN GABORONE - NO SWEAT</h1>
+                
+                <!-- Search Bar -->
+                <div class="max-w-2xl mx-auto mb-12">
+                    <div class="flex shadow-md rounded-lg overflow-hidden">
+                        <input type="text" placeholder="Search by location, price..." class="flex-grow px-4 py-3 focus:outline-none">
+                        <button class="bg-primary text-white px-6 py-3 hover:bg-blue-600 transition">Search</button>
+                    </div>
+                </div>
+                
+                <!-- Navigation Tiles -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+                    <div class="bg-secondary p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+                        <h3 class="text-xl font-semibold mb-3">Create Account</h3>
+                        <p>Join ROOMZA to find your perfect housing match</p>
+                    </div>
+                    <div class="bg-accent p-6 rounded-lg shadow-md hover:shadow-lg transition cursor-pointer">
+                        <h3 class="text-xl font-semibold mb-3">Browse Listings</h3>
+                        <p>Find affordable places to live in your area</p>
+                    </div>
+                </div>
+                
+                <!-- Personality Quiz Button -->
+                <div class="text-center">
+                    <button class="bg-primary text-white px-6 py-3 rounded-md hover:bg-blue-600 transition">
+                        Take Our Personality Quiz to Find Compatible Roommates
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Create Account (Hidden by default) -->
+        <section id="create-account" class="hidden py-12 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-md">
+                <h2 class="text-3xl font-bold text-center text-primary mb-8">Create Your Account</h2>
+                <form class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="username">Username</label>
+                        <input type="text" id="username" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="email">Email</label>
+                        <input type="email" id="email" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2" for="password">Password</label>
+                        <input type="password" id="password" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white py-2 rounded-md hover:bg-blue-600 transition">Create Account</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- About Us (Hidden by default) -->
+        <section id="about-us" class="hidden py-12 bg-secondary">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <h2 class="text-3xl font-bold text-center text-white mb-8">About ROOMZA</h2>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="mb-4">ROOMZA is a platform dedicated to helping students and low-income individuals find affordable housing and compatible roommates.</p>
+                    <h3 class="text-xl font-semibold mb-3 text-primary">Our Mission</h3>
+                    <p class="mb-4">To make housing accessible and affordable for everyone by connecting people with shared living spaces and compatible roommates.</p>
+                    <blockquote class="border-l-4 border-primary pl-4 italic text-gray-700">
+                        "A home is more than just a place to live - it's where life happens. We're here to help you find yours."
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat (Hidden by default) -->
+        <section id="chat" class="hidden py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-primary mb-8">Chat with Potential Roommates</h2>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden max-w-4xl mx-auto">
+                    <div class="flex">
+                        <!-- Contacts List -->
+                        <div class="w-1/3 border-r">
+                            <div class="p-4 bg-gray-50 border-b">
+                                <input type="text" placeholder="Search contacts..." class="w-full px-3 py-2 border rounded-md">
+                            </div>
+                            <ul id="chat-contacts" class="overflow-y-auto"></ul>
+                        </div>
+                        <!-- Chat Area -->
+                        <div class="w-2/3 flex flex-col" style="height: 500px;">
+                            <div id="chat-messages" class="flex-grow p-4 overflow-y-auto"></div>
+                            <div class="p-4 border-t">
+                                <div class="flex">
+                                    <input type="text" placeholder="Type your message..." class="flex-grow px-3 py-2 border rounded-l-md">
+                                    <button class="bg-primary text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition">Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Find a Home (Hidden by default) -->
+        <section id="find-home" class="hidden py-12 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-primary mb-8">Find Your Perfect Home</h2>
+                
+                <!-- Filters -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">Filter Listings</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Location</label>
+                            <input type="text" placeholder="City, neighborhood..." class="w-full px-3 py-2 border rounded-md">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Price Range</label>
+                            <select class="w-full px-3 py-2 border rounded-md">
+                                <option>Any</option>
+                                <option>P0-P500</option>
+                                <option>P500-P1000</option>
+                                <option>P1000-P1500</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Roommate Age</label>
+                            <select class="w-full px-3 py-2 border rounded-md">
+                                <option>Any</option>
+                                <option>18-25</option>
+                                <option>25-35</option>
+                                <option>35+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Occupation</label>
+                            <select class="w-full px-3 py-2 border rounded-md">
+                                <option>Any</option>
+                                <option>Student</option>
+                                <option>Working Professional</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Room Type</label>
+                            <select class="w-full px-3 py-2 border rounded-md">
+                                <option>Any</option>
+                                <option>Private Room</option>
+                                <option>Shared Room</option>
+                                <option>Studio</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button class="w-full bg-primary text-white py-2 rounded-md hover:bg-blue-600 transition">Apply Filters</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Listings -->
+                <div id="listings-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ROOMZA</h3>
+                    <p>Find out what kind of ROOMZA you are here!</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul id="footer-quick-links"></ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul id="footer-legal-links"></ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-accent"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="hover:text-accent"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="hover:text-accent"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white mt-8 pt-6 text-center">
+                <p>&copy; 2026 ROOMZA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data layer
+        const navigationData = [
+            { "label": "About Us", "href": "#about-us" },
+            { "label": "Chat", "href": "#chat" },
+            { "label": "Find a Home", "href": "#find-home" }
+        ];
+        
+        const chatContacts = [
+            { "name": "Alex Johnson", "lastMessage": "Hey, are you still looking for a roommate?", "unread": 2 },
+            { "name": "Sam Wilson", "lastMessage": "I sent you the lease details", "unread": 0 },
+            { "name": "Taylor Smith", "lastMessage": "When can you come see the place?", "unread": 1 }
+        ];
+        
+        const listingsData = [
+            { 
+                "title": "Cozy Downtown Apartment", 
+                "location": "Downtown", 
+                "price": "P750/month", 
+                "roommateAge": "24", 
+                "roommateOccupation": "Student", 
+                "image": "https://cf.bstatic.com/xdata/images/hotel/square600/603322813.webp?k=4333481982501842729606094df38665705c003d5469adc74b50d9821fbd8403&o=",
+                "alt": "Downtown apartment living room"
+            },
+            { 
+                "title": "Quiet Suburban House", 
+                "location": "North Suburbs", 
+                "price": "P600/month", 
+                "roommateAge": "28", 
+                "roommateOccupation": "Teacher", 
+                "image": "https://cf.bstatic.com/xdata/images/hotel/square600/37147584.webp?k=35c178a940792201671a60e31c10f25107363c01065f1cc26bd745b803a4eb24&o=",
+                "alt": "Suburban house exterior"
+            },
+            { 
+                "title": "Modern Studio Near Campus", 
+                "location": "University District", 
+                "price": "P850/month", 
+                "roommateAge": "22", 
+                "roommateOccupation": "Student", 
+                "image": "https://cf.bstatic.com/xdata/images/hotel/square600/753120596.webp?k=9a4e0913d5a21b7ea04326e49d618d6d3080274a37691b6c610d92d8b80f40ce&o=",
+                "alt": "Modern studio apartment"
+            },
+            { 
+                "title": "Shared Room in Artist Collective", 
+                "location": "Arts District", 
+                "price": "P850/month", 
+                "roommateAge": "26", 
+                "roommateOccupation": "Artist", 
+                "image": "https://cf.bstatic.com/xdata/images/hotel/square600/671662973.webp?k=977ff1391d4e5653e144c24eced0b5392c732d657d97ba564fa0c43c2ebde623&o=",
+                "alt": "Artist loft space"
+            },
+            { 
+                "title": "Private Basement Suite", 
+                "location": "Eastside", 
+                "price": "P700/month", 
+                "roommateAge": "30", 
+                "roommateOccupation": "Engineer", 
+                "image": "https://cf.bstatic.com/xdata/images/hotel/square600/661252907.webp?k=3a763328f15937ad056d6fe00d282c896f176cea3939a19e95560ff6d544c596&o=",
+                "alt": "Basement suite living area"
+            },
+            { 
+                "title": "Large House Shared Room", 
+                "location": "Westside", 
+                "price": "P550/month", 
+                "roommateAge": "25", 
+                "roommateOccupation": "Barista", 
+                "image": "https://cf.bstatic.com/xdata/images/hotel/square600/787084794.webp?k=243a6d25229aa51b84904dc80d549f017d9864a660386a277dcb4638656e3a30&o=",
+                "alt": "Shared bedroom in large house"
+            }
+        ];
+        
+        const footerQuickLinks = [
+            { "label": "Home", "href": "#landing" },
+            { "label": "Listings", "href": "#find-home" },
+            { "label": "Create Account", "href": "#create-account" }
+        ];
+        
+        const footerLegalLinks = [
+            { "label": "Privacy Policy", "href": "#privacy" },
+            { "label": "Terms of Service", "href": "#terms" },
+            { "label": "Contact Us", "href": "#contact" }
+        ];
+
+        // Reusable render functions
+        function renderNavigation(items) {
+            return items.map(item => 
+                `<li><a href="${item.href}" class="text-gray-700 hover:text-primary transition">${item.label}</a></li>`
+            ).join("");
+        }
+        
+        function renderChatContacts(items) {
+            return items.map(item => `
+                <li class="p-3 border-b hover:bg-gray-50 cursor-pointer">
+                    <div class="flex justify-between">
+                        <span class="font-medium">${item.name}</span>
+                        ${item.unread > 0 ? `<span class="bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">${item.unread}</span>` : ''}
+                    </div>
+                    <p class="text-sm text-gray-500 truncate">${item.lastMessage}</p>
+                </li>`
+            ).join("");
+        }
+        
+        function renderListings(items) {
+            return items.map(item => `
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="${item.image}" alt="${item.alt}" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-1">${item.title}</h3>
+                        <p class="text-gray-600 mb-2">${item.location} • ${item.price}</p>
+                        <div class="flex justify-between text-sm">
+                            <span>Roommate Age: ${item.roommateAge}</span>
+                            <span>Occupation: ${item.roommateOccupation}</span>
+                        </div>
+                        <button class="mt-4 w-full bg-primary text-white py-2 rounded-md hover:bg-blue-600 transition">View Details</button>
+                    </div>
+                </div>`
+            ).join("");
+        }
+        
+        function renderFooterLinks(items) {
+            return items.map(item => 
+                `<li class="mb-2"><a href="${item.href}" class="hover:text-accent transition">${item.label}</a></li>`
+            ).join("");
+        }
+
+        // Initial rendering
+        document.getElementById("nav-links").innerHTML = renderNavigation(navigationData);
+        document.getElementById("mobile-nav-links").innerHTML = renderNavigation(navigationData);
+        document.getElementById("chat-contacts").innerHTML = renderChatContacts(chatContacts);
+        document.getElementById("listings-grid").innerHTML = renderListings(listingsData);
+        document.getElementById("footer-quick-links").innerHTML = renderFooterLinks(footerQuickLinks);
+        document.getElementById("footer-legal-links").innerHTML = renderFooterLinks(footerLegalLinks);
+
+        // Page navigation functionality
+        function showSection(sectionId) {
+            document.querySelectorAll('main > section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        // Event listeners
+        document.addEventListener("DOMContentLoaded", function() {
+            // Navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute("href").substring(1);
+                    if (targetId === "landing") {
+                        showSection("landing");
+                        window.scrollTo(0, 0);
+                    } else if (targetId === "create-account") {
+                        showSection("create-account");
+                    } else if (targetId === "about-us") {
+                        showSection("about-us");
+                    } else if (targetId === "chat") {
+                        showSection("chat");
+                    } else if (targetId === "find-home") {
+                        showSection("find-home");
+                    }
+                });
+            });
+            
+            // Sign in button
+            document.getElementById("sign-in-btn").addEventListener("click", function() {
+                showSection("create-account");
+            });
+            
+            // Mobile menu toggle
+            document.getElementById("mobile-menu-btn").addEventListener("click", function() {
+                document.getElementById("mobile-menu").classList.toggle("hidden");
+            });
+            
+            // Navigation tiles
+            document.querySelectorAll('.bg-secondary, .bg-accent').forEach(tile => {
+                tile.addEventListener("click", function() {
+                    const isCreateAccount = this.classList.contains('bg-secondary');
+                    showSection(isCreateAccount ? "create-account" : "find-home");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
